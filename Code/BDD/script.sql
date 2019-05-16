@@ -16,150 +16,150 @@ CREATE SCHEMA IF NOT EXISTS `BDD_SatisfEvent` DEFAULT CHARACTER SET utf8 ;
 USE `BDD_SatisfEvent` ;
 
 -- -----------------------------------------------------
--- Table `BDD_SatisfEvent`.`Ecoles`
+-- Table `BDD_SatisfEvent`.`Schools`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `BDD_SatisfEvent`.`Ecoles` (
-  `idEcoles` INT NOT NULL,
-  `Nom` VARCHAR(10) NULL,
-  PRIMARY KEY (`idEcoles`))
+CREATE TABLE IF NOT EXISTS `BDD_SatisfEvent`.`Schools` (
+  `idSchools` INT NOT NULL,
+  `Name` VARCHAR(10) NULL,
+  PRIMARY KEY (`idSchools`))
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `BDD_SatisfEvent`.`Utilisateurs`
+-- Table `BDD_SatisfEvent`.`Users`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `BDD_SatisfEvent`.`Utilisateurs` (
-  `idUtilisateurs` INT NOT NULL AUTO_INCREMENT,
-  `Prenom` VARCHAR(45) NULL,
-  `Nom` VARCHAR(45) NULL,
+CREATE TABLE IF NOT EXISTS `BDD_SatisfEvent`.`Users` (
+  `idUsers` INT NOT NULL AUTO_INCREMENT,
+  `FirstName` VARCHAR(45) NULL,
+  `LastName` VARCHAR(45) NULL,
   `Email` VARCHAR(45) NULL,
-  `MotDePasse` VARCHAR(45) NULL,
+  `Password` VARCHAR(45) NULL,
   `Admin` TINYINT(1) NULL,
-  `Ecoles_idEcoles` INT NOT NULL,
-  PRIMARY KEY (`idUtilisateurs`),
-  CONSTRAINT `fk_Utilisateurs_Ecoles1`
-    FOREIGN KEY (`Ecoles_idEcoles`)
-    REFERENCES `BDD_SatisfEvent`.`Ecoles` (`idEcoles`)
+  `Schools_idSchools` INT NOT NULL,
+  PRIMARY KEY (`idUsers`),
+  CONSTRAINT `fk_Users_Schools1`
+    FOREIGN KEY (`Schools_idSchools`)
+    REFERENCES `BDD_SatisfEvent`.`Schools` (`idSchools`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
-CREATE INDEX `fk_Utilisateurs_Ecoles1_idx` ON `BDD_SatisfEvent`.`Utilisateurs` (`Ecoles_idEcoles` ASC);
+CREATE INDEX `fk_Users_Schools1_idx` ON `BDD_SatisfEvent`.`Users` (`Schools_idSchools` ASC);
 
 
 -- -----------------------------------------------------
--- Table `BDD_SatisfEvent`.`Ateliers`
+-- Table `BDD_SatisfEvent`.`WorkingGroups`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `BDD_SatisfEvent`.`Ateliers` (
-  `idAteliers` INT NOT NULL,
-  `Nom` VARCHAR(45) NULL,
-  `Coût` INT NULL,
-  PRIMARY KEY (`idAteliers`))
+CREATE TABLE IF NOT EXISTS `BDD_SatisfEvent`.`WorkingGroups` (
+  `idWorkingGroups` INT NOT NULL,
+  `Title` VARCHAR(45) NULL,
+  `Cost` INT NULL,
+  PRIMARY KEY (`idWorkingGroups`))
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `BDD_SatisfEvent`.`Statistiques`
+-- Table `BDD_SatisfEvent`.`Statistics`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `BDD_SatisfEvent`.`Statistiques` (
-  `idStatistiques` INT NOT NULL,
-  `Supports` TINYINT NULL,
-  `Animation` TINYINT NULL,
-  `Lieu` TINYINT NULL,
-  `Horaires` TINYINT NULL,
+CREATE TABLE IF NOT EXISTS `BDD_SatisfEvent`.`Statistics` (
+  `idStatistics` INT NOT NULL,
+  `Material` TINYINT NULL,
+  `Activity` TINYINT NULL,
+  `Place` TINYINT NULL,
+  `Hours` TINYINT NULL,
   `Satisfaction` TINYINT NULL,
-  PRIMARY KEY (`idStatistiques`))
+  PRIMARY KEY (`idStatistics`))
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `BDD_SatisfEvent`.`Evenements`
+-- Table `BDD_SatisfEvent`.`Events`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `BDD_SatisfEvent`.`Evenements` (
-  `idEvenements` INT NOT NULL,
-  `Nom` VARCHAR(45) NULL,
+CREATE TABLE IF NOT EXISTS `BDD_SatisfEvent`.`Events` (
+  `idEvents` INT NOT NULL,
+  `Title` VARCHAR(45) NULL,
   `Date` DATE NULL,
-  PRIMARY KEY (`idEvenements`))
+  PRIMARY KEY (`idEvents`))
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `BDD_SatisfEvent`.`Utilisateurs_has_Ateliers`
+-- Table `BDD_SatisfEvent`.`Users_has_WorkingGroups`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `BDD_SatisfEvent`.`Utilisateurs_has_Ateliers` (
-  `Utilisateurs_idUtilisateurs` INT NOT NULL,
-  `Ateliers_idAteliers` INT NOT NULL,
-  PRIMARY KEY (`Utilisateurs_idUtilisateurs`, `Ateliers_idAteliers`),
-  CONSTRAINT `fk_Utilisateurs_has_Ateliers_Utilisateurs`
-    FOREIGN KEY (`Utilisateurs_idUtilisateurs`)
-    REFERENCES `BDD_SatisfEvent`.`Utilisateurs` (`idUtilisateurs`)
+CREATE TABLE IF NOT EXISTS `BDD_SatisfEvent`.`Users_has_WorkingGroups` (
+  `Users_idUsers` INT NOT NULL,
+  `WorkingGroups_idWorkingGroups` INT NOT NULL,
+  PRIMARY KEY (`Users_idUsers`, `WorkingGroups_idWorkingGroups`),
+  CONSTRAINT `fk_Users_has_WorkingGroups_Users`
+    FOREIGN KEY (`Users_idUsers`)
+    REFERENCES `BDD_SatisfEvent`.`Users` (`idUsers`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `fk_Utilisateurs_has_Ateliers_Ateliers1`
-    FOREIGN KEY (`Ateliers_idAteliers`)
-    REFERENCES `BDD_SatisfEvent`.`Ateliers` (`idAteliers`)
+  CONSTRAINT `fk_Users_has_WorkingGroups_WorkingGroups1`
+    FOREIGN KEY (`WorkingGroups_idWorkingGroups`)
+    REFERENCES `BDD_SatisfEvent`.`WorkingGroups` (`idWorkingGroups`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
-CREATE INDEX `fk_Utilisateurs_has_Ateliers_Ateliers1_idx` ON `BDD_SatisfEvent`.`Utilisateurs_has_Ateliers` (`Ateliers_idAteliers` ASC);
+CREATE INDEX `fk_Users_has_WorkingGroups_WorkingGroups1_idx` ON `BDD_SatisfEvent`.`Users_has_WorkingGroups` (`WorkingGroups_idWorkingGroups` ASC);
 
-CREATE INDEX `fk_Utilisateurs_has_Ateliers_Utilisateurs_idx` ON `BDD_SatisfEvent`.`Utilisateurs_has_Ateliers` (`Utilisateurs_idUtilisateurs` ASC);
+CREATE INDEX `fk_Users_has_WorkingGroups_Users_idx` ON `BDD_SatisfEvent`.`Users_has_WorkingGroups` (`Users_idUsers` ASC);
 
 
 -- -----------------------------------------------------
--- Table `BDD_SatisfEvent`.`Ateliers_has_Evenements`
+-- Table `BDD_SatisfEvent`.`WorkingGroups_has_Events`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `BDD_SatisfEvent`.`Ateliers_has_Evenements` (
-  `Ateliers_idAteliers` INT NOT NULL,
-  `Evenements_idEvenements` INT NOT NULL,
-  PRIMARY KEY (`Ateliers_idAteliers`, `Evenements_idEvenements`),
-  CONSTRAINT `fk_Ateliers_has_Evenements_Ateliers1`
-    FOREIGN KEY (`Ateliers_idAteliers`)
-    REFERENCES `BDD_SatisfEvent`.`Ateliers` (`idAteliers`)
+CREATE TABLE IF NOT EXISTS `BDD_SatisfEvent`.`WorkingGroups_has_Events` (
+  `WorkingGroups_idWorkingGroups` INT NOT NULL,
+  `Events_idEvents` INT NOT NULL,
+  PRIMARY KEY (`WorkingGroups_idWorkingGroups`, `Events_idEvents`),
+  CONSTRAINT `fk_WorkingGroups_has_Events_WorkingGroups1`
+    FOREIGN KEY (`WorkingGroups_idWorkingGroups`)
+    REFERENCES `BDD_SatisfEvent`.`WorkingGroups` (`idWorkingGroups`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `fk_Ateliers_has_Evenements_Evenements1`
-    FOREIGN KEY (`Evenements_idEvenements`)
-    REFERENCES `BDD_SatisfEvent`.`Evenements` (`idEvenements`)
+  CONSTRAINT `fk_WorkingGroups_has_Events_Events1`
+    FOREIGN KEY (`Events_idEvents`)
+    REFERENCES `BDD_SatisfEvent`.`Events` (`idEvents`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
-CREATE INDEX `fk_Ateliers_has_Evenements_Evenements1_idx` ON `BDD_SatisfEvent`.`Ateliers_has_Evenements` (`Evenements_idEvenements` ASC);
+CREATE INDEX `fk_WorkingGroups_has_Events_Events1_idx` ON `BDD_SatisfEvent`.`WorkingGroups_has_Events` (`Events_idEvents` ASC);
 
-CREATE INDEX `fk_Ateliers_has_Evenements_Ateliers1_idx` ON `BDD_SatisfEvent`.`Ateliers_has_Evenements` (`Ateliers_idAteliers` ASC);
+CREATE INDEX `fk_WorkingGroups_has_Events_WorkingGroups1_idx` ON `BDD_SatisfEvent`.`WorkingGroups_has_Events` (`WorkingGroups_idWorkingGroups` ASC);
 
 
 -- -----------------------------------------------------
--- Table `BDD_SatisfEvent`.`Ateliers_has_Statistiques`
+-- Table `BDD_SatisfEvent`.`WorkingGroups_has_Statistics`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `BDD_SatisfEvent`.`Ateliers_has_Statistiques` (
-  `Ateliers_idAteliers` INT NOT NULL,
-  `Statistiques_idStatistiques` INT NOT NULL,
-  PRIMARY KEY (`Ateliers_idAteliers`, `Statistiques_idStatistiques`),
-  CONSTRAINT `fk_Ateliers_has_Statistiques_Ateliers1`
-    FOREIGN KEY (`Ateliers_idAteliers`)
-    REFERENCES `BDD_SatisfEvent`.`Ateliers` (`idAteliers`)
+CREATE TABLE IF NOT EXISTS `BDD_SatisfEvent`.`WorkingGroups_has_Statistics` (
+  `WorkingGroups_idWorkingGroups` INT NOT NULL,
+  `Statistics_idStatistics` INT NOT NULL,
+  PRIMARY KEY (`WorkingGroups_idWorkingGroups`, `Statistics_idStatistics`),
+  CONSTRAINT `fk_WorkingGroups_has_Statistics_WorkingGroups1`
+    FOREIGN KEY (`WorkingGroups_idWorkingGroups`)
+    REFERENCES `BDD_SatisfEvent`.`WorkingGroups` (`idWorkingGroups`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `fk_Ateliers_has_Statistiques_Statistiques1`
-    FOREIGN KEY (`Statistiques_idStatistiques`)
-    REFERENCES `BDD_SatisfEvent`.`Statistiques` (`idStatistiques`)
+  CONSTRAINT `fk_WorkingGroups_has_Statistics_Statistics1`
+    FOREIGN KEY (`Statistics_idStatistics`)
+    REFERENCES `BDD_SatisfEvent`.`Statistics` (`idStatistics`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
-CREATE INDEX `fk_Ateliers_has_Statistiques_Statistiques1_idx` ON `BDD_SatisfEvent`.`Ateliers_has_Statistiques` (`Statistiques_idStatistiques` ASC);
+CREATE INDEX `fk_WorkingGroups_has_Statistics_Statistics1_idx` ON `BDD_SatisfEvent`.`WorkingGroups_has_Statistics` (`Statistics_idStatistics` ASC);
 
-CREATE INDEX `fk_Ateliers_has_Statistiques_Ateliers1_idx` ON `BDD_SatisfEvent`.`Ateliers_has_Statistiques` (`Ateliers_idAteliers` ASC);
+CREATE INDEX `fk_WorkingGroups_has_Statistics_WorkingGroups1_idx` ON `BDD_SatisfEvent`.`WorkingGroups_has_Statistics` (`WorkingGroups_idWorkingGroups` ASC);
 
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 
-INSERT INTO `Ecoles` VALUES
+INSERT INTO `Schools` VALUES
 ('1','CEPM'),
 ('2','CEPV'),
 ('3','COFOP'),

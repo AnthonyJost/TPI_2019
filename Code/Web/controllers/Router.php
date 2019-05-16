@@ -1,4 +1,6 @@
 <?php
+require_once('views/View.php');
+
 class Router
 {
     private $_ctrl;
@@ -13,7 +15,7 @@ class Router
                 require_once('models/'.$class.'.php');
             });
 
-            $url = '';
+            $url = array();
 
             // Le controleur est inclus selon l'action de l'utilisateur
             if(isset($_GET['url']))
@@ -34,15 +36,16 @@ class Router
             }
             else
             {
-                require_once('controllers/ControllerAccueil.php');
-                $this->_ctrl = new ControllerAccueil($url);
+                require_once('controllers/ControllerEvents.php');
+                $this->_ctrl = new ControllerEvents($url);
             }
         }
         // Gestion des erreurs
         catch(Exception $e)
         {
             $errorMsg = $e->getMessage();
-            require_once('views/viewError.php');
+            $this->_view = new View('Error');
+            $this->_view->generate(array('errorMsg' => $errorMsg));
         }
     }
 }

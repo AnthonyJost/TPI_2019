@@ -1,23 +1,25 @@
 <?php
+define('URL', str_replace("index.php", "", (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[PHP_SELF]"));
+
 //requires
 require_once('controllers/Router.php');
 
 $router = new Router();
 $router->routeReq();
 
-require_once("modele/DBManager.php");
+//require_once("modele/DBManager.php");
 
 //page
-$page = 'accueil';
+/*$page = 'Accueil';
 if(!empty($_GET['p'])){
     $page = $_GET['p'];
-}
+}*/
 
-require("controlleurs/$page.php");
+//require("controlleurs/Controller$page.php");
 
-include("vues/$page.php"); ?>
+//include("vues/view$page.php");
 
-
+/*
 <html lang="en">
 <head>
     <title>SatisfEvent</title>
@@ -498,4 +500,4 @@ include("vues/$page.php"); ?>
 <script src="js/circle-progress.min.js"></script>
 <script src="js/owl.carousel.min.js"></script>
 <script src="js/main.js"></script>
-</html>
+</html>*/
