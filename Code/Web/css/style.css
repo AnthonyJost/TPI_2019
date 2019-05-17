@@ -108,7 +108,7 @@ ol {
 
 .section-title {
 	text-align: center;
-	padding: 0 110px;
+	padding: 200px 110px 0px 110px;
 	margin-bottom: 110px;
 }
 
@@ -130,8 +130,8 @@ ol {
 }
 
 .spad {
-	padding-top: 115px;
-	padding-bottom: 115px;
+	padding-top: 15px;
+	padding-bottom: 15px;
 }
 
 .text-white h1,
@@ -144,7 +144,7 @@ ol {
 .text-white span,
 .text-white li,
 .text-white a {
-	color: #fff;
+	color: #000;
 }
 
 .rating i {
@@ -279,7 +279,7 @@ ol {
 .main-menu ul li a {
 	display: inline-block;
 	font-size: 16px;
-	color: #fff;
+	color: #000;
 	margin-left: 45px;
 	font-weight: 600;
 	padding: 20px 0 5px;
@@ -308,13 +308,13 @@ ol {
 
 .hero-text {
 	text-align: center;
-	padding-top: 340px;
-	margin-bottom: 105px;
+	padding-top: 220px;
+	margin-bottom: 100px;
 }
 
 .hero-text h2 {
-	font-size: 60px;
-	font-weight: 500;
+	font-size: 48px;
+	font-weight: 600;
 	margin-bottom: 20px;
 }
 
@@ -325,7 +325,6 @@ ol {
 	padding: 0 30px;
 	margin-right: 22px;
 	float: left;
-	border: none;
 	font-size: 14px;
 }
 
@@ -701,10 +700,6 @@ ol {
   Footer section
 ---------------------*/
 
-.footer-section {
-	border-top: 3px solid #039136;
-}
-
 .footer-warp {
 	max-width: 1559px;
 	padding: 0 15px;
@@ -792,6 +787,10 @@ ol {
 	background: #edf4f6;
 	padding: 20px 0;
 	margin-top: 50px;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
 }
 
 .footer-menu {
@@ -1755,3 +1754,8 @@ ol {
 		margin-right: 10px;
 	}
 }
+ .informations{
+	 padding-left: 25%;
+	 padding-right: 25%;
+	 text-decoration-color: #000;
+ }

@@ -1,19 +1,23 @@
 <?php $this->_t = 'Accueil';?>
     <!-- Hero section -->
-    <section class="hero-section set-bg" data-setbg="img/bg.jpg">
-        <div class="container">
+    <section>
+        <div>
             <div class="hero-text text-white">
-                <h2>Get The Best Free Online Courses</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada lorem maximus mauris scelerisque, at rutrum nulla <br> dictum. Ut ac ligula sapien. Suspendisse cursus faucibus finibus.</p>
+                <h2>Animateurs Pédagogiques Vaudois</h2>
+                <p>Recevoir, conseiller et aider les enseignants</p>
             </div>
-            <div class="row">
-                <div class="col-lg-10 offset-lg-1">
-                    <form class="intro-newslatter">
-                        <input type="text" placeholder="Name">
-                        <input type="text" class="last-s" placeholder="E-mail">
-                        <button class="site-btn">Sign Up Now</button>
-                    </form>
-                </div>
+            <div class="informations">
+                <p>
+                    Bienvenue sur le site des animateurs pédagogiques vaudois.
+                    Les activités des animateurs pédagogiques sont :
+                    <ul>
+                        <li>Recevoir, conseiller et aider les enseignants de son établissement, ainsi que les autres acteurs possibles du processus pédagogique.</li>
+                        <li>Sur demande, l’animateur pédagogique peut participer aux projets d’établissement concernant la promotion de la santé et notamment les questions liées à la santé au travail.</li>
+                        <li>Mise en place d’un environnement professionnel facilitant la pratique de l’enseignant, notamment en proposant des moments de formation et d’échanges</li>
+                        <li>Donner l’accès aux enseignants à des ressources pédagogiques</li>
+                    </ul>
+                    Les journées des séances cantonales sont agendées. Si vous souhaitez nous soumettre une idée, n’hésitez pas à contacter l’animateur de votre école.
+                </p>
             </div>
         </div>
     </section>

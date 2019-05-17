@@ -36,8 +36,8 @@ class Router
             }
             else
             {
-                require_once('controllers/ControllerEvents.php');
-                $this->_ctrl = new ControllerEvents($url);
+                require_once('controllers/ControllerAccueil.php');
+                $this->_ctrl = new ControllerAccueil($url);
             }
         }
         // Gestion des erreurs
