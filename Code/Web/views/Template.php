@@ -38,11 +38,10 @@
                         </div>
                     </div>
                     <div class="col-lg-9 col-md-9">
-                        <a href="" class="site-btn header-btn">Inscription/Connexion</a>
+                        <a href="index.php?url=Register" class="site-btn header-btn">Inscription/Connexion</a>
                         <nav class="main-menu">
                             <ul>
                                 <li><a href="index.php">Accueil</a></li>
-                                <li><a href="#">À propos</a></li>
                                 <li><a href="index.php?url=Events">Événements</a></li>
                                 <li><a href="contact.html">Contact</a></li>
                             </ul>
