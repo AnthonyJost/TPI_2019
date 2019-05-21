@@ -3,6 +3,6 @@ class EventsManager extends Model
 {
     public function getEvents()
     {
-        return $this->getAll('events', 'events');
+        return $this->getAllEvents('events', 'events');
     }
 }

@@ -19,10 +19,23 @@ abstract class Model
         return self::$_BDD;
     }
 
-    protected function getAll($table, $obj)
+    protected function getAllEvents($table, $obj)
     {
         $var = [];
         $req = $this->getBDD()->prepare('SELECT * FROM ' .$table. ' ORDER BY Date desc');
+        $req->execute();
+        while($data = $req->fetch(PDO::FETCH_ASSOC))
+        {
+            $var[] = new $obj($data);
+        }
+        return $var;
+        $req->closeCursor();
+    }
+
+    protected function getAllSchools($table, $obj)
+    {
+        $var = [];
+        $req = $this->getBDD()->prepare('SELECT * FROM ' .$table. ' ORDER BY Name asc');
         $req->execute();
         while($data = $req->fetch(PDO::FETCH_ASSOC))
         {

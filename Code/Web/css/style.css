@@ -108,7 +108,7 @@ ol {
 
 .section-title {
 	text-align: center;
-	padding: 200px 110px 0px 110px;
+	padding: 0px 110px 0px 110px;
 	margin-bottom: 110px;
 }
 
@@ -130,8 +130,8 @@ ol {
 }
 
 .spad {
-	padding-top: 15px;
-	padding-bottom: 15px;
+	/*padding-top: 15px;
+	padding-bottom: 15px;*/
 }
 
 .text-white h1,
@@ -308,7 +308,6 @@ ol {
 
 .hero-text {
 	text-align: center;
-	padding-top: 220px;
 	margin-bottom: 100px;
 }
 
@@ -1758,4 +1757,8 @@ ol {
 	 padding-left: 25%;
 	 padding-right: 25%;
 	 text-decoration-color: #000;
+ }
+
+ .bodypage{
+	 padding-top: 220px;
  }

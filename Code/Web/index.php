@@ -2,7 +2,7 @@
 define('URL', str_replace("index.php", "", (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[PHP_SELF]"));
 
 //requires
-require_once('controllers/Router.php');
+require_once('controlers/Router.php');
 
 $router = new Router();
 $router->routeReq();
@@ -15,7 +15,7 @@ if(!empty($_GET['p'])){
     $page = $_GET['p'];
 }*/
 
-//require("controlleurs/Controller$page.php");
+//require("controleurs/Controler$page.php");
 
 //include("vues/view$page.php");
 

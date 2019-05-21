@@ -22,22 +22,22 @@ class Router
             {
                 $url = explode('/', filter_var($_GET['url'], FILTER_SANITIZE_URL));
 
-                $controller = ucfirst(strtolower($url[0]));
-                $controllerClass = "Controller".$controller;
-                $controllerFile = "controllers/".$controllerClass.".php";
+                $controler = ucfirst(strtolower($url[0]));
+                $controlerClass = "controler".$controler;
+                $controlerFile = "controlers/".$controlerClass.".php";
 
-                if(file_exists($controllerFile))
+                if(file_exists($controlerFile))
                 {
-                    require_once($controllerFile);
-                    $this->_ctrl = new $controllerClass($url);
+                    require_once($controlerFile);
+                    $this->_ctrl = new $controlerClass($url);
                 }
                 else
                     throw new Exception('Page introuvable');
             }
             else
             {
-                require_once('controllers/ControllerHome.php');
-                $this->_ctrl = new ControllerHome($url);
+                require_once('controlers/controlerRegister.php');
+                $this->_ctrl = new controlerRegister($url);
             }
         }
         // Gestion des erreurs

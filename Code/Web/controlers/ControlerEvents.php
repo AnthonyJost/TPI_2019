@@ -1,6 +1,6 @@
 <?php
 require_once('views/View.php');
-class ControllerEvents
+class ControlerEvents
 {
     private $_eventsManager;
     private $_view;
@@ -10,11 +10,11 @@ class ControllerEvents
         if(isset($url) && count($url) > 1)
             throw new Exception('Page introuvable');
         else
-            $this->events();
+            $this->DisplayEvents();
     }
 
 
-    private function events()
+    private function DisplayEvents()
     {
         $this->_eventsManager = new EventsManager;
         $events = $this->_eventsManager->getEvents();

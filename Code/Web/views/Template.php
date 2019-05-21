@@ -41,7 +41,7 @@
                         <a href="index.php?url=Register" class="site-btn header-btn">Inscription/Connexion</a>
                         <nav class="main-menu">
                             <ul>
-                                <li><a href="index.php">Accueil</a></li>
+                                <li><a href="index.php?url=Home">Accueil</a></li>
                                 <li><a href="index.php?url=Events">Événements</a></li>
                                 <li><a href="contact.html">Contact</a></li>
                             </ul>
@@ -53,8 +53,9 @@
         <!-- Header section end -->
     </head>
 
-
-    <?= $content ?>
+    <div class="bodypage">
+        <?= $content ?>
+    </div>
 
     <!-- footer section -->
     <footer class="footer-section spad pb-0">

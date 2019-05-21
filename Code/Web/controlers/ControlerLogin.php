@@ -1,6 +1,6 @@
 <?php
 require_once('views/View.php');
-class ControllerHome
+class ControlerLogin
 {
     private $_view;
 
@@ -9,13 +9,13 @@ class ControllerHome
         if(isset($url) && count($url) > 1)
             throw new Exception('Page introuvable');
         else
-            $this->Home();
+            $this->DisplayLogin();
     }
 
 
-    private function Home()
+    private function DisplayLogin()
     {
-        $this->_view = new View('Home');
+        $this->_view = new View('Login');
         $this->_view->generate(array(null));
     }
 }
