@@ -23,7 +23,7 @@ class Schools
     }
 
     // Setters
-    public function setId($idSchools)
+    public function setIdSchools($idSchools)
     {
         $idSchools = (int) $idSchools;
 

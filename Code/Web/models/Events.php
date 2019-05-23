@@ -24,7 +24,7 @@ class Events
     }
 
     // Setters
-    public function setId($idEvents)
+    public function setIdEvents($idEvents)
     {
         $idEvents = (int) $idEvents;
 

@@ -11,25 +11,25 @@
         </div>
         <div class="container">
             <label for="userFirstName"><b>Prénom</b></label>
-            <input type="text" placeholder="Entrez votre prénom" name="inputUserFirstName" required>
+            <input type="text" placeholder="Entrez votre prénom" name="inputFirstName" required>
             <br/>
             <label for="userLastName"><b>Nom</b></label>
-            <input type="text" placeholder="Entrez votre nom" name="inputUserLastName" required>
+            <input type="text" placeholder="Entrez votre nom" name="inputLastName" required>
             <br/>
             <label for="userEmail"><b>Email</b></label>
-            <input type="email" placeholder="Entrez une addresse email" name="inputUserEmailAddress" required>
+            <input type="email" placeholder="Entrez une addresse email" name="inputEmail" required>
             <br/>
             <label for="userPsw"><b>Mot de passe</b></label>
-            <input type="password" placeholder="Entrez un mot de passe" name="inputUserPsw" required>
+            <input type="password" placeholder="Entrez un mot de passe" name="inputPassword" required>
             <br/>
             <label for="psw-repeat"><b>Confirmez le mot de passe</b></label>
-            <input type="password" placeholder="Confirmez le mot de passe" name="inputUserPswRepeat" required>
+            <input type="password" placeholder="Confirmez le mot de passe" name="inputPasswordRepeat" required>
             <br/>
             <label for="_name"><b>Sélectionnez une école</b></label>
             <select placeholder="Votre école" required>
                 <option value="" disabled selected>--Choisissez une école--</option>
                 <?php foreach($schools as $school): ?>
-                    <option id="_name" value="<?= $school->name() ?>" ><?= $school->name() ?></option>
+                    <option id="_name" name="inputSchool" value="<?= $school->idSchools() ?>" ><?= $school->name() ?></option>
                 <?php endforeach; ?>
             </select>
 
