@@ -44,31 +44,4 @@ abstract class Model
         return $var;
         $req->closeCursor();
     }
-
-    protected function executeQuerySelect($query){
-        $queryResult = null;
-
-        $dbConnexion = $this->getBDD();//open database connexion
-        if ($dbConnexion != null)
-        {
-            $statement = $dbConnexion->prepare($query);//prepare query
-            $statement->execute();//execute query
-            $queryResult = $statement->fetchAll();//prepare result for client
-        }
-        $dbConnexion = null;//close database connexion
-        return $queryResult;
-    }
-
-    function executeQueryInsert($query){
-        $queryResult = null;
-
-        $dbConnexion = $this->getBDD();//open database connexion
-        if ($dbConnexion != null)
-        {
-            $statement = $dbConnexion->prepare($query);//prepare query
-            $queryResult = $statement->execute();//execute query
-        }
-        $dbConnexion = null;//close database connexion
-        return $queryResult;
-    }
 }

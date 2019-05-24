@@ -34,7 +34,7 @@ CREATE TABLE IF NOT EXISTS `BDD_SatisfEvent`.`Users` (
   `LastName` VARCHAR(45) NULL,
   `Email` VARCHAR(45) NULL,
   `Password` VARCHAR(45) NULL,
-  `Admin` TINYINT(1) NULL,
+  `Admin` TINYINT(1) DEFAULT '0',
   `Schools_idSchools` INT NOT NULL,
   PRIMARY KEY (`idUsers`),
   CONSTRAINT `fk_Users_Schools1`
@@ -173,3 +173,4 @@ INSERT INTO `Schools` VALUES
 ('11','ESS'),
 ('12','ETML'),
 ('13','ETVJ');
+
