@@ -31,7 +31,7 @@ function openDBConnexion (){
     $tempDbConnexion = null;
 
     //
-        $tempDbConnexion = new PDO('mysql:host=localhost;dbname=bdd_satisfevent;port=3306','root','');
+        $tempDbConnexion = new PDO('mysql:host=localhost;dbname=bdd_satisfevent;port=3306','root','Chau55ette5!');
     //}
     //catch (PDOException $exception) {
     //    echo 'Connection failed: ' . $exception->getMessage();

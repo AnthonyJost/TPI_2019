@@ -10,6 +10,12 @@ if (isset($_GET['action'])) {
         case 'home' :
             $view ='home';
             break;
+        case 'displayEvents' :
+            $view ='events';
+            break;
+        case 'displayUsers' :
+            $view ='users';
+            break;
         case 'login' :
             $view ='login';
             break;
@@ -27,6 +33,10 @@ if (isset($_GET['action'])) {
         case 'registerValidation' :
             $view ='registerValidation';
             register();
+            break;
+        case 'admin' :
+            $view ='admin';
+            admin();
             break;
         default :
             $view ='error';

@@ -51,8 +51,11 @@
                     <?php endif; ?>
 					<nav class="main-menu">
 						<ul>
-                            <li><a href="index.php?action=home">Accueil</a></li>
-                            <li><a href="index.php?action=displayEvents">Événements</a></li>
+                            <li><a href="?action=home">Accueil</a></li>
+                            <li><a href="?action=displayEvents">Événements</a>
+                            <?php if(isset($_SESSION['logged']) && $_SESSION['logged']['Admin'] == 1): ?>
+                                <li><a href="?action=admin">Admin</a></li>
+                            <?php endif; ?>
 						</ul>
 					</nav>
 				</div>

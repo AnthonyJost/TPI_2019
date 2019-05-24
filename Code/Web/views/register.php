@@ -2,9 +2,6 @@
 require_once "model/usersManager.php";
 $schools = getSchools();
 ?>
-<?php if (@$_GET['registerError'] == true) :?>
-    <h5><span style="color:red">Inscription refusée</span></h5>
-<?php endif ?>
 
 <!-- signup section -->
 <section class="signup-section spad">
@@ -20,15 +17,17 @@ $schools = getSchools();
                     <form class="signup-form" method="post" action="?action=registerValidation">
                         <input type="text" placeholder="Prénom" name="inputFirstName" id="inputFirstName" required>
                         <input type="text" placeholder="Nom" name="inputLastName" id="inputLastName" required>
-                        <input type="email" placeholder="Email" name="inputEmail" id="inputEmail" required>
-                        <input type="password" placeholder="Mot de passe" name="inputPsw" id="inputPsw" required>
-                        <input type="password" placeholder="Confirmez le mot de passe" name="inputPswRepeat" id="inputPswRepeat" required>
+                        <input type="email" placeholder="Email" name="inputEmail" id="inputEmail" title="" required>
+                        <!--pattern="(.*[-\da-zA-z+!?*%&/()[\]\\\#=_<>]).{8,}"-->
+                        <input type="password" placeholder="Mot de passe" name="inputPsw" id="inputPsw" title="Le mot de passe doit contenir minimum 8 caractères, une majuscule, une minuscule, un chiffre et un caractère spécial" required>
+                        <input type="password" placeholder="Confirmez le mot de passe" name="inputPswRepeat" id="inputPswRepeat" title="Le mot de passe doit contenir minimum 8 caractères, une majuscule, une minuscule, un chiffre et un caractère spécial" required>
                         <select id="inputSchool" name="inputSchool" placeholder="École" required>
                             <option value="" disabled selected>--Choisissez une école--</option>
                             <?php foreach($schools as $school): ?>
                                 <option value="<?= $school['idSchools'] ?>" ><?= $school['Name'] ?></option>
                             <?php endforeach; ?>
                         </select>
+                        <b><?php if(isset($_GET['error'])){echo $_GET['error'];} ?></b><br/>
                         <button type="submit" class="site-btn">S'inscrire</button>
                         <a href="?action=login">Connexion</a>
                     </form>

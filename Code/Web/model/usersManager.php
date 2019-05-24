@@ -29,3 +29,13 @@ function getUserByEmail($Email)
     $result = $request->fetchAll();
     return $result[0];
 }
+
+function getUsers()
+{
+    require_once 'model/dbConnector.php';
+    $connexion = openDBConnexion();
+    $request = $connexion->prepare('SELECT idUsers, FirstName, LastName, Email, Admin, `Name` FROM bdd_satisfevent.users INNER JOIN bdd_satisfevent.schools ON users.Schools_idSchools = schools.idSchools');
+    $request->execute(array());
+    $result = $request->fetchAll();
+    return $result;
+}

@@ -130,8 +130,8 @@ ol {
 }
 
 .spad {
-	padding-top: 115px;
-	padding-bottom: 115px;
+	padding-top: 50px;
+	padding-bottom: 50px;
 }
 
 .text-white h1,
@@ -292,6 +292,7 @@ ol {
 .header-btn {
 	float: right;
 	margin-right: 0;
+	margin-left: 45px;
 }
 
 .nav-switch {

@@ -15,7 +15,7 @@
                     <form class="signup-form" method="post" action="?action=loginValidation">
                         <input type="email" placeholder="Email" name="inputEmail" id="inputEmail" required>
                         <input type="password" placeholder="Mot de passe" name="inputPsw" id="inputPsw" required>
-                        <b><?php if(isset($_GET['error'])){echo $_GET['error'];} ?></b>
+                        <b><?php if(isset($_GET['error'])){echo $_GET['error'];} ?></b><br/>
                         <button type="submit" class="site-btn">Se connecter</button>
                         <a href="?action=register">Inscription</a>
                     </form>
