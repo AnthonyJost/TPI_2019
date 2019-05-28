@@ -8,6 +8,9 @@
             <a href="?action=displayUsers">
                 <b>Gestion des utilisateurs</b>
             </a>
+            <a href="?action=eventsManagement">
+                <b>Gestion des événements</b>
+            </a>
         </div>
     </div>
 </section>

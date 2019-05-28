@@ -39,3 +39,12 @@ function getUsers()
     $result = $request->fetchAll();
     return $result;
 }
+
+function removeUser($idUser)
+{
+    require_once 'model/dbConnector.php';
+    $connexion = openDBConnexion();
+    $request = $connexion->prepare('DELETE FROM bdd_satisfevent.users WHERE idUsers = ?');
+    //var_dump($idUser);
+    $request->execute(array($idUser));
+}

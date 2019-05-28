@@ -13,8 +13,22 @@ if (isset($_GET['action'])) {
         case 'displayEvents' :
             $view ='events';
             break;
+        case 'registerEvents' :
+            $view ='registerEvents';
+            registerEvents();
+            break;
         case 'displayUsers' :
             $view ='users';
+            break;
+        case 'eventsManagement' :
+            $view = 'eventsManagement';
+            break;
+        case 'modifyEvent' :
+            $view = 'modifyEvent';
+            break;
+        case 'updateEvent' :
+            $view = 'eventsManagement';
+            updateEvent($_POST);
             break;
         case 'login' :
             $view ='login';
@@ -36,7 +50,10 @@ if (isset($_GET['action'])) {
             break;
         case 'admin' :
             $view ='admin';
-            admin();
+            break;
+        case 'deleteUser' :
+            $view ='users';
+            deleteUser();
             break;
         default :
             $view ='error';

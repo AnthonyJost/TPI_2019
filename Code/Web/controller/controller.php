@@ -75,7 +75,22 @@ function verifyPassword($verifyPassword)
 
 }
 
-function admin()
+function deleteUser()
 {
+    require_once("model/usersManager.php");
+    removeUser($_GET['idUsers']);
+}
 
+function updateEvent($values)
+{
+    require_once("model/eventsManager.php");
+    modifyEvent($values);
+}
+
+function registerEvents()
+{
+    require_once("model/eventsManager.php");
+    getEventTitle($_GET['idEvents']);
+    require_once("model/workinggroupManager.php");
+    getWorkinggroup();
 }

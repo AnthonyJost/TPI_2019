@@ -26,6 +26,7 @@ $users = getUsers();
                     <td><?= $user['Email']; ?></td>
                     <td><?= $user['Admin']; ?></td>
                     <td><?= $user['Name']; ?></td>
+                    <td><a href="?action=deleteUser&idUsers=<?=$user['idUsers']?>"><img src="img/delete.png"></a></td>
                 </tr>
             <?php endforeach; ?>
         </tbody>
