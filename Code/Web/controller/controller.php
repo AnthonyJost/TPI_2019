@@ -92,5 +92,5 @@ function registerEvents()
     require_once("model/eventsManager.php");
     getEventTitle($_GET['idEvents']);
     require_once("model/workinggroupManager.php");
-    getWorkinggroup();
+    getWorkinggroups($_GET['idEvents']);
 }

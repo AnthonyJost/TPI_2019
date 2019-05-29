@@ -59,6 +59,10 @@ p {
 	font-weight: 500;
 }
 
+time{
+	color: #474747 !important;
+}
+
 img {
 	max-width: 100%;
 }
@@ -374,7 +378,7 @@ ol {
 }
 
 .categorie-item:hover {
-	background: #039136;
+	/*background: #039136;*/
 }
 
 .categorie-item:hover .ci-text h5,

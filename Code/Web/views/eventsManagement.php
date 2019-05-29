@@ -16,10 +16,10 @@ $events = getEvents();
                     <a href="?action=modifyEvent&idEvents=<?=$event['idEvents']?>">
                         <div class="categorie-item">
                             <div class="ci-thumb set-bg" data-setbg="img/categories/1.jpg"></div>
-                                <div class="ci-text">
-                                    <h2><?= $event['Title'] ?></h2>
-                                    <time><?= $event['Date'] ?></time>
-                                </div>
+                            <div class="ci-text">
+                                <h2><?= $event['Title'] ?></h2>
+                                <time><?= $event['Date'] ?></time>
+                            </div>
                         </div>
                     </a>
                 </div>

@@ -4,7 +4,7 @@ function getEvents()
 {
     require_once 'model/dbConnector.php';
     $connexion = openDBConnexion();
-    $request = $connexion->prepare('SELECT * FROM bdd_satisfevent.events');
+    $request = $connexion->prepare('SELECT * FROM bdd_satisfevent.events ORDER BY Date Asc');
     $request->execute(array());
     $result = $request->fetchAll();
     return $result;

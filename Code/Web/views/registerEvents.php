@@ -1,6 +1,7 @@
 <?php
 require_once "model/eventsManager.php";
 $event = getEventTitle();
+$workinggroups = getWorkinggroups();
 ?>
 
 <!-- categories section -->
@@ -10,19 +11,21 @@ $event = getEventTitle();
             <h2><?=$event['Title']?></h2>
         </div>
         <div class="row">
-            <div class="col-lg-4 col-md-6">
-                <div class="categorie-item">
-                    <div class="ci-thumb set-bg" data-setbg="img/categories/1.jpg"></div>
-                    <form class="signup-form" method="post" action="">
-                        <input type="text" name="idEvents" value="" hidden>
-                        <label>Titre</label>
-                        <input type="text" name="Title" value=""><br/>
-                        <label>Date</label>
-                        <input type="date" name="Date" value=""><br/><br/>
-                        <button type="submit" class="site-btn">Modifier</button>
-                    </form>
+            <?php foreach($workinggroups as $workinggroup): ?>
+                <div class="col-lg-4 col-md-6">
+                    <div class="categorie-item">
+                        <div class="ci-thumb set-bg" data-setbg="img/categories/4.jpg"></div>
+                        <div class="ci-text">
+                            <input type="text" name="idWorkinggroups" value="<?=$workinggroup['idWorkinggroups']?>" hidden>
+                            <label>Titre</label>
+                            <h3 type="text"><?=$workinggroup['Title']?></h3><br/>
+                            <label>Coût</label>
+                            <h4 type="number"><?=$workinggroup['Cost']?></h4><br/>
+                            <button type="submit" class="site-btn">s'inscrire</button>
+                        </div>
+                    </div>
                 </div>
-            </div>
+            <?php endforeach; ?>
         </div>
     </div>
 </section>

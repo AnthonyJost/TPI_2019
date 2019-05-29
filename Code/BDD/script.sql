@@ -33,7 +33,7 @@ CREATE TABLE IF NOT EXISTS `BDD_SatisfEvent`.`Users` (
   `FirstName` VARCHAR(45) NULL,
   `LastName` VARCHAR(45) NULL,
   `Email` VARCHAR(45) NULL,
-  `Password` VARCHAR(45) NULL,
+  `Password` VARCHAR(60) NULL,
   `Admin` TINYINT(1) DEFAULT '0',
   `Schools_idSchools` INT NOT NULL,
   PRIMARY KEY (`idUsers`),
@@ -51,7 +51,7 @@ CREATE INDEX `fk_Users_Schools1_idx` ON `BDD_SatisfEvent`.`Users` (`Schools_idSc
 -- Table `BDD_SatisfEvent`.`WorkingGroups`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `BDD_SatisfEvent`.`WorkingGroups` (
-  `idWorkingGroups` INT NOT NULL,
+  `idWorkingGroups` INT NOT NULL AUTO_INCREMENT,
   `Title` VARCHAR(45) NULL,
   `Cost` INT NULL,
   PRIMARY KEY (`idWorkingGroups`))
@@ -62,7 +62,7 @@ ENGINE = InnoDB;
 -- Table `BDD_SatisfEvent`.`Statistics`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `BDD_SatisfEvent`.`Statistics` (
-  `idStatistics` INT NOT NULL,
+  `idStatistics` INT NOT NULL AUTO_INCREMENT,
   `Material` TINYINT NULL,
   `Activity` TINYINT NULL,
   `Place` TINYINT NULL,
@@ -76,7 +76,7 @@ ENGINE = InnoDB;
 -- Table `BDD_SatisfEvent`.`Events`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `BDD_SatisfEvent`.`Events` (
-  `idEvents` INT NOT NULL,
+  `idEvents` INT NOT NULL AUTO_INCREMENT,
   `Title` VARCHAR(45) NULL,
   `Date` DATE NULL,
   PRIMARY KEY (`idEvents`))
