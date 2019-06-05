@@ -1,8 +1,3 @@
-<?php
-require_once "model/usersManager.php";
-$users = getUsers();
-?>
-
 <div>
     <h1>Test</h1>
     <p>Ceci est un test</p>

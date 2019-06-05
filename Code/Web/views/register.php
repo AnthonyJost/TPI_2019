@@ -1,8 +1,3 @@
-<?php
-require_once "model/usersManager.php";
-$schools = getSchools();
-?>
-
 <!-- signup section -->
 <section class="signup-section spad">
     <div class="signup-bg set-bg" data-setbg="img/signup-bg.jpg"></div>

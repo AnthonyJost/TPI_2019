@@ -53,7 +53,9 @@
 					<nav class="main-menu">
 						<ul>
                             <li><a href="?action=home">Accueil</a></li>
-                            <li><a href="?action=displayEvents">Événements</a>
+                            <?php if(isset($_SESSION['logged'])): ?>
+                                <li><a href="?action=displayEvents">Événements</a>
+                            <?php endif; ?>
                             <?php if(isset($_SESSION['logged']) && $_SESSION['logged']['Admin'] == 1): ?>
                                 <li><a href="?action=admin">Admin</a></li>
                             <?php endif; ?>

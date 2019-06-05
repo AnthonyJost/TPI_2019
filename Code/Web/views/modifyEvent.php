@@ -1,8 +1,3 @@
-<?php
-require_once "model/eventsManager.php";
-$modifyEvent = getModifyEvent();
-?>
-
 <!-- categories section -->
 <section class="categories-section spad">
     <div class="container">

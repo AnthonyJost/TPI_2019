@@ -3,6 +3,7 @@
 session_start();
 require_once "controller/controller.php";
 
+//global $view;
 $view = "home";
 if (isset($_GET['action'])) {
     $action = $_GET['action'];
@@ -11,53 +12,69 @@ if (isset($_GET['action'])) {
             $view ='home';
             break;
         case 'displayEvents' :
+            ShowEvents();
             $view ='events';
             break;
         case 'registerEvents' :
-            $view ='registerEvents';
-            registerEvents();
+            choiceEvent();
+            break;
+        case 'unregisterWorkinggroups' :
+            unregisterWorkinggroups();
+            ShowEvents();
+            $view ='events';
             break;
         case 'displayUsers' :
+            showUsers();
             $view ='users';
             break;
         case 'eventsManagement' :
+            ShowEvents();
             $view = 'eventsManagement';
             break;
         case 'modifyEvent' :
+            eventModifier();
             $view = 'modifyEvent';
             break;
         case 'updateEvent' :
-            $view = 'eventsManagement';
             updateEvent($_POST);
+            ShowEvents();
+            $view = 'eventsManagement';
+            break;
+        case 'registerWorkinggroups' :
+            registerWorkinggroup();
+            ShowEvents();
+            $view = 'events';
             break;
         case 'login' :
             $view ='login';
             break;
         case 'loginValidation';
-            $view ='home';
             login();
+            $view ='home';
             break;
         case 'logout' :
-            $view ='home';
             logout();
+            $view ='home';
             break;
         case 'register' :
+            displayRegister();
             $view ='register';
             break;
         case 'registerValidation' :
-            $view ='registerValidation';
             register();
+            $view ='registerValidation';
             break;
         case 'admin' :
             $view ='admin';
             break;
         case 'deleteUser' :
-            $view ='users';
             deleteUser();
+            showUsers();
+            $view ='users';
             break;
         default :
-            $view ='error';
             error();
+            $view ='error';
     }
 }
 else {

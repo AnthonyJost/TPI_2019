@@ -10,6 +10,16 @@ function getEvents()
     return $result;
 }
 
+function getEvent($idEvent)
+{
+    require_once 'model/dbConnector.php';
+    $connexion = openDBConnexion();
+    $request = $connexion->prepare('SELECT * FROM bdd_satisfevent.events WHERE idEvents = ?');
+    $request->execute(array($idEvent));
+    $result = $request->fetchAll();
+    return $result[0];
+}
+
 function getModifyEvent()
 {
     require_once 'model/dbConnector.php';
@@ -36,4 +46,29 @@ function getEventTitle()
     $request->execute(array($_GET['idEvents']));
     $result = $request->fetchAll();
     return $result[0];
+}
+
+function getEventByWorkingGroup($idWG)
+{
+    require_once 'model/dbConnector.php';
+    $connexion = openDBConnexion();
+    $request = $connexion->prepare('SELECT Events_idEvents FROM bdd_satisfevent.workinggroups_has_events WHERE Workinggroups_idWorkinggroups = ?');
+    $request->execute(array($idWG));
+    $result = $request->fetchAll();
+    return $result[0];
+}
+
+function getUserWorkinggroups($user, $event)
+{
+    require_once 'model/dbConnector.php';
+    $connexion = openDBConnexion();
+    $request = $connexion->prepare('
+        SELECT * FROM users_has_workinggroups 
+        INNER JOIN workinggroups_has_events on workinggroups_has_events.workinggroups_idworkinggroups = users_has_workinggroups.workinggroups_idworkinggroups 
+        WHERE users_has_workinggroups.users_idusers = ?
+        AND workinggroups_has_events.Events_idEvents = ?'
+    );
+    $request->execute(array($user, $event));
+    $result = $request->fetchAll();
+    return $result;
 }
