@@ -8,6 +8,9 @@
             <a href="?action=eventsManagement">
                 <b>Gestion des événements</b>
             </a>
+            <a href="?action=displayStats">
+                <b>Statistiques</b>
+            </a>
         </div>
     </div>
 </section>

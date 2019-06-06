@@ -72,6 +72,13 @@ if (isset($_GET['action'])) {
             showUsers();
             $view ='users';
             break;
+        case 'sendForm' :
+            sendForm();
+            break;
+        case 'displayStats' :
+            showStats();
+            $view = 'stats';
+            break;
         default :
             error();
             $view ='error';

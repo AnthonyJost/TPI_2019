@@ -34,34 +34,38 @@ function registerEvents(){
 
 // Function which determine the correct action to do based on the event date and the user inscription
 function choiceEvent(){
-    global $event, $workingGroups, $registeredWG;
+    global $event, $workingGroups, $registeredWG, $formSent;
     require_once 'model/eventsManager.php';
+    require_once("model/workinggroupsManager.php");
 
     // Get event info
     $event = getEvent($_GET['idEvents']);
 
     // Verify if the user is already registered in a working group of the event
     $userWorkinggroups = getUserWorkinggroups($_SESSION['logged']['idUsers'], $_GET['idEvents']);
+    $workingGroups = getWorkinggroups($event["idEvents"]);
     $eventDate = strtotime($event["Date"]);
     $currentDate = time();
-    if($eventDate <= $currentDate){ //past event
-        if(count($userWorkinggroups) == 0){ //user is not register to a working group
+    if($eventDate <= $currentDate){ // Past event
+        if(count($userWorkinggroups) == 0){ // User is not register to a working group
             echo "evenement passé";
-            //redirection
+            // Redirection
             return;
         }
-        $GLOBALS['view'] = "satisform";
-        echo "formulaire";
-        // Redirection
+        $wGId = getWGId($_SESSION['logged']['idUsers'], $_GET['idEvents']);
+        $formSent = isformSent($_SESSION['logged']['idUsers'], $_GET['idEvents'], $wGId);
+        if(count($formSent) == 0){
+            $GLOBALS['view'] = "satisform";
+            // Redirection
+            return;
+        }
+        echo "Formulaire déjà rempli";
         return;
     }
 
-    // Data preparation
-    require_once("model/workinggroupsManager.php");
-    $workingGroups = getWorkinggroups($event["idEvents"]);
     // Prepare ids
     $registeredWG = array();
-    foreach($userWorkinggroups as $uwg){ //uwg means User Working Group
+    foreach($userWorkinggroups as $uwg){ // uwg means User Working Group
         array_push($registeredWG, $uwg["WorkingGroups_idWorkingGroups"]);
     }
     $GLOBALS['view'] ='registerEvents';
@@ -146,6 +150,15 @@ function unregisterWorkinggroups(){
     require_once 'model/workinggroupsManager.php';
     deleteUserFromWorkinggroups($_GET['idWorkinggroups']);
 }
+
+// Call the function which will enter the form data into the database
+function sendForm(){
+    require_once 'model/workinggroupsManager.php';
+    dataForm($_POST['Material'], $_POST['Activity'], $_POST['Place'], $_POST['Hours'], $_POST['Satisfaction'], $_POST['Suggestion']);
+    $idStat = getStatId();
+    userHasStat($idStat);
+    wGHasStats($_POST['idWorkinggroups'], $idStat);
+}
 /*
  * Working groups related section end
  */
@@ -193,7 +206,6 @@ function login(){
         header("Location:?action=login&error=Le mot de passe est incorrect");
         exit();
     }
-
     // Login successful
     $_SESSION['logged'] = $user;
 }
@@ -206,6 +218,11 @@ function login(){
  */
 function error(){
 
+}
+
+function showStats(){
+    require_once 'model/statsManager.php';
+    getStats();
 }
 
 // Verify the password respect criteria

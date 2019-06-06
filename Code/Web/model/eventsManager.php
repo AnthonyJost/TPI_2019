@@ -4,7 +4,7 @@ function getEvents()
 {
     require_once 'model/dbConnector.php';
     $connexion = openDBConnexion();
-    $request = $connexion->prepare('SELECT * FROM bdd_satisfevent.events ORDER BY Date Asc');
+    $request = $connexion->prepare('SELECT * FROM bdd_satisfevent.events ORDER BY Date Desc');
     $request->execute(array());
     $result = $request->fetchAll();
     return $result;
@@ -63,8 +63,9 @@ function getUserWorkinggroups($user, $event)
     require_once 'model/dbConnector.php';
     $connexion = openDBConnexion();
     $request = $connexion->prepare('
-        SELECT * FROM users_has_workinggroups 
-        INNER JOIN workinggroups_has_events on workinggroups_has_events.workinggroups_idworkinggroups = users_has_workinggroups.workinggroups_idworkinggroups 
+        SELECT * FROM users_has_workinggroups
+        INNER JOIN workinggroups_has_events on workinggroups_has_events.workinggroups_idworkinggroups = users_has_workinggroups.workinggroups_idworkinggroups
+		INNER JOIN workinggroups on workinggroups.idWorkingGroups = users_has_workinggroups.WorkingGroups_idWorkingGroups 
         WHERE users_has_workinggroups.users_idusers = ?
         AND workinggroups_has_events.Events_idEvents = ?'
     );
