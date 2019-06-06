@@ -1,49 +1,25 @@
-<div>
-    <canvas id="graphCanvas"></canvas>
-</div>
-
+<canvas id="myChart"></canvas>
 <script>
-    $(document).ready(function () {
-        showGraph();
-    });
-
-
-    function showGraph()
-    {
-        {
-            $.post("data.php",
-                function (data)
-                {
-                    console.log(data);
-                    var name = [];
-                    var marks = [];
-
-                    for (var i in data) {
-                        name.push(data[i].student_name);
-                        marks.push(data[i].marks);
+    var ctx = document.getElementById('myChart').getContext('2d');
+    var myChart = new Chart(ctx, {
+        type: 'pie',
+        data: {
+            labels: <?php echo json_encode($data1); ?>,
+            datasets: [{
+                label: 'Test',
+                data: [12, 19, 3, 5, 2, 3],
+                backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                borderColor: 'rgba(255, 99, 132, 1)',
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
                     }
-
-                    var chartdata = {
-                        labels: name,
-                        datasets: [
-                            {
-                                label: 'Student Marks',
-                                backgroundColor: '#49e2ff',
-                                borderColor: '#46d5f1',
-                                hoverBackgroundColor: '#CCCCCC',
-                                hoverBorderColor: '#666666',
-                                data: marks
-                            }
-                        ]
-                    };
-
-                    var graphTarget = $("#graphCanvas");
-
-                    var barGraph = new Chart(graphTarget, {
-                        type: 'bar',
-                        data: chartdata
-                    });
-                });
+                }]
+            }
         }
-    }
+    });
 </script>

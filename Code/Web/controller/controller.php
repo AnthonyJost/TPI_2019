@@ -222,7 +222,7 @@ function error(){
 
 function showStats(){
     require_once 'model/statsManager.php';
-    getStats();
+    getStats(3);
 }
 
 // Verify the password respect criteria

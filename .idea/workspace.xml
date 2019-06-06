@@ -2,20 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0a985932-1639-4b6b-b7ca-15e06d8951cb" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Code/Web/model/statsManager.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Code/Web/views/stats.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/BDD/Create_DB.sql" beforeDir="false" afterPath="$PROJECT_DIR$/Code/BDD/Create_DB.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Code/Web/controller/controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Web/controller/controller.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/Web/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Web/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/Web/model/eventsManager.php" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Web/model/eventsManager.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/Web/model/workinggroupsManager.php" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Web/model/workinggroupsManager.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/Web/views/Template.php" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Web/views/Template.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/Web/views/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Web/views/admin.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/Web/views/satisform.php" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Web/views/satisform.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Documentation/AJT_Documentation_TPI.doc" beforeDir="false" afterPath="$PROJECT_DIR$/Documentation/AJT_Documentation_TPI.doc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Documentation/BDD/MLD.mwb" beforeDir="false" afterPath="$PROJECT_DIR$/Documentation/BDD/MLD.mwb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Documentation/BDD/MLD.mwb.bak" beforeDir="false" afterPath="$PROJECT_DIR$/Documentation/BDD/MLD.mwb.bak" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/Web/model/statsManager.php" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Web/model/statsManager.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/Web/views/stats.php" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Web/views/stats.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -57,11 +46,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Code/Web/controller/controller.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="365">
-              <caret line="62" column="15" selection-start-line="62" selection-start-column="15" selection-end-line="62" selection-end-column="15" />
+            <state relative-caret-position="543">
+              <caret line="224" column="14" selection-start-line="224" selection-start-column="14" selection-end-line="224" selection-end-column="14" />
               <folding>
                 <element signature="e#6#44#0#PHP" expanded="true" />
               </folding>
@@ -72,17 +61,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Code/Web/views/stats.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="23" column="21" lean-forward="true" selection-start-line="23" selection-start-column="21" selection-end-line="23" selection-end-column="21" />
+            <state relative-caret-position="102">
+              <caret line="6" column="54" selection-start-line="6" selection-start-column="54" selection-end-line="6" selection-end-column="54" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Code/Web/model/statsManager.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="561">
-              <caret line="33" column="24" selection-start-line="33" selection-start-column="24" selection-end-line="33" selection-end-column="24" />
+            <state relative-caret-position="255">
+              <caret line="15" column="21" selection-start-line="15" selection-start-column="21" selection-end-line="15" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -149,10 +138,10 @@
         <option value="$PROJECT_DIR$/Code/Web/views/template.php" />
         <option value="$PROJECT_DIR$/Code/Web/views/admin.php" />
         <option value="$PROJECT_DIR$/Code/Web/index.php" />
-        <option value="$PROJECT_DIR$/Code/Web/model/statsManager.php" />
-        <option value="$PROJECT_DIR$/Code/Web/views/stats.php" />
         <option value="$PROJECT_DIR$/Code/Web/model/workinggroupsManager.php" />
+        <option value="$PROJECT_DIR$/Code/Web/views/stats.php" />
         <option value="$PROJECT_DIR$/Code/Web/controller/controller.php" />
+        <option value="$PROJECT_DIR$/Code/Web/model/statsManager.php" />
       </list>
     </option>
   </component>
@@ -162,7 +151,7 @@
     </servers>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP" />
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds">
     <option name="x" value="-7" />
     <option name="width" value="968" />
     <option name="height" value="1047" />
@@ -262,18 +251,18 @@
       <workItem from="1559114669321" duration="3172000" />
       <workItem from="1559628811424" duration="22239000" />
       <workItem from="1559715146174" duration="5749000" />
-      <workItem from="1559800931080" duration="20899000" />
+      <workItem from="1559800931080" duration="23522000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="90278000" />
+    <option name="totallyTimeSpent" value="92901000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-7" y="0" width="968" height="1047" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.141258" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.28964758" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="PHP-CGI Server" order="0" />
@@ -435,20 +424,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Code/Web/model/statsManager.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="33" column="24" selection-start-line="33" selection-start-column="24" selection-end-line="33" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Code/Web/views/stats.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="23" column="21" lean-forward="true" selection-start-line="23" selection-start-column="21" selection-end-line="23" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Code/Web/model/eventsManager.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="566">
@@ -456,17 +431,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Code/Web/views/satisform.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1054">
-          <caret line="62" column="79" lean-forward="true" selection-start-line="62" selection-start-column="79" selection-end-line="62" selection-end-column="79" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Code/Web/index.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="365">
           <caret line="75" column="16" lean-forward="true" selection-start-line="75" selection-start-column="16" selection-end-line="75" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Code/Web/views/stats.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="54" selection-start-line="6" selection-start-column="54" selection-end-line="6" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Code/Web/views/satisform.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1054">
+          <caret line="62" column="79" lean-forward="true" selection-start-line="62" selection-start-column="79" selection-end-line="62" selection-end-column="79" />
         </state>
       </provider>
     </entry>
@@ -479,11 +461,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Code/Web/controller/controller.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="365">
-          <caret line="62" column="15" selection-start-line="62" selection-start-column="15" selection-end-line="62" selection-end-column="15" />
+        <state relative-caret-position="543">
+          <caret line="224" column="14" selection-start-line="224" selection-start-column="14" selection-end-line="224" selection-end-column="14" />
           <folding>
             <element signature="e#6#44#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Code/Web/model/statsManager.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="21" selection-start-line="15" selection-start-column="21" selection-end-line="15" selection-end-column="21" />
         </state>
       </provider>
     </entry>

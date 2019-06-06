@@ -1,34 +1,21 @@
 <?php
-function getStats()
+function getStats($idWG)
 {
-    require_once('dbConnector.php');
-
+    require_once('model/dbConnector.php');
     $connexion = openDBConnexion();
-    $request = $connexion->prepare('SELECT * FROM statistics');
-    $request->execute(array());
-    $result = $request->fetchAll();
+    $request = $connexion->prepare('
+    SELECT Material, Activity, Place, Hours, Satisfaction
+    FROM bdd_satisfevent.workinggroups_has_statistics
+    INNER JOIN statistics ON statistics.idStatistics = statistics_idStatistics
+    WHERE WorkingGroups_idWorkingGroups = ?');
+    $request->execute(array($idWG));
 
-    $data = array();
-    foreach ($result as $row) {
-        $data[] = $row;
+    $material = [];
+    $data = [];
+    while ($row = $request->fetch(PDO::FETCH_ASSOC)){
+        //[ind, count]
+        array_push($material, $row['Material']);
+        array_push($data, $row['Material']);
     }
 
-    echo json_encode($data);
 }
-
-header('Content-Type: application/json');
-
-require_once('db.php');
-
-$sqlQuery = "SELECT student_id,student_name,marks FROM tbl_marks ORDER BY student_id";
-
-$result = mysqli_query($conn,$sqlQuery);
-
-$data = array();
-foreach ($result as $row) {
-    $data[] = $row;
-}
-
-mysqli_close($conn);
-
-echo json_encode($data);
