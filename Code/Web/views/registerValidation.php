@@ -1,2 +1,2 @@
 <!-- Register validation page -->
-Coucou
+<h2>Vous êtes bien enregistré</h2>

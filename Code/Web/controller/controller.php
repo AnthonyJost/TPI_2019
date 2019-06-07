@@ -198,14 +198,14 @@ function login(){
 
     // Verify that the user exists
     if (empty($user['Email'])){
-        header("Location:?action=login&error=Cet+utilisateur+n'existe+pas");
+        header("Location:?action=login&error=Les informations entrées sont incorrectes");
         exit();
     }
 
     // Password comparison
     $Password = md5($_POST['inputPsw']);
     if ($Password != $user['Password']){
-        header("Location:?action=login&error=Le mot de passe est incorrect");
+        header("Location:?action=login&error=Les informations entrées sont incorrectes");
         exit();
     }
     // Login successful
