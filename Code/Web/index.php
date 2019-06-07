@@ -76,7 +76,7 @@ if (isset($_GET['action'])) {
             sendForm();
             break;
         case 'displayStats' :
-            showStats();
+            showStats($_GET['idWorkingGroups']);
             $view = 'stats';
             break;
         default :

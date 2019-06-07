@@ -10,12 +10,19 @@ function getStats($idWG)
     WHERE WorkingGroups_idWorkingGroups = ?');
     $request->execute(array($idWG));
 
-    $material = [];
-    $data = [];
-    while ($row = $request->fetch(PDO::FETCH_ASSOC)){
-        //[ind, count]
-        array_push($material, $row['Material']);
-        array_push($data, $row['Material']);
-    }
+    $statsName = ["Material", "Activity", "Place", "Hours", "Satisfaction"];
 
+    global $stats;
+    $stats = [];
+    while ($row = $request->fetch(PDO::FETCH_ASSOC)) {
+        foreach ($statsName as $statName){
+            if(!isset($stats[$statName])){
+                $stats[$statName] = [];
+            }
+            if (!isset($stats[$statName][$row[$statName]])) {
+                $stats[$statName][$row[$statName]] = 0;
+            }
+            $stats[$statName][$row[$statName]]++;
+        }
+    }
 }

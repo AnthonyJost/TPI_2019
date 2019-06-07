@@ -12,9 +12,12 @@ function showEvents(){
 
 // Get the infos of the event the admin wants to modify
 function eventModifier(){
-    global $modifyEvent;
+    global $modifyEvent, $workingGroups;
     require_once "model/eventsManager.php";
+    require_once("model/workinggroupsManager.php");
+
     $modifyEvent = getModifyEvent();
+    $workingGroups = getWorkinggroups($_GET['idEvents']);
 }
 
 // Send the new data to the database in order to update the event
@@ -27,8 +30,9 @@ function updateEvent($values){
 // Get the title of the selected event and all the working groups contains in it
 function registerEvents(){
     require_once("model/eventsManager.php");
-    getEventTitle($_GET['idEvents']);
     require_once("model/workinggroupsManager.php");
+
+    getEventTitle($_GET['idEvents']);
     getWorkinggroups($_GET['idEvents']);
 }
 
@@ -220,9 +224,9 @@ function error(){
 
 }
 
-function showStats(){
+function showStats($idWG){
     require_once 'model/statsManager.php';
-    getStats(3);
+    getStats($idWG);
 }
 
 // Verify the password respect criteria
