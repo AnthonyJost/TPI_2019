@@ -1,3 +1,4 @@
+<!-- View of the admin page -->
 <section class="hero-section">
     <div class="container">
         <div class="hero-text text-white">

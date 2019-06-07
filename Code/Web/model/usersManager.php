@@ -1,5 +1,6 @@
 <?php
 
+// Insert the user info into the DB
 function registerNewAccount($FirstName, $LastName, $Email, $Psw, $idSchools){
 
     $Password = md5($Psw);
@@ -10,6 +11,7 @@ function registerNewAccount($FirstName, $LastName, $Email, $Psw, $idSchools){
     $request->execute(array($FirstName, $LastName, $Email, $Password, $idSchools));
 }
 
+// Get the schools to insert them into a dropdown list
 function getSchools()
 {
     $schoolsQuery = 'SELECT * FROM Schools';
@@ -20,6 +22,7 @@ function getSchools()
     return $schoolsResults;
 }
 
+// Get the user info based on his email
 function getUserByEmail($Email)
 {
     require_once 'model/dbConnector.php';
@@ -30,6 +33,7 @@ function getUserByEmail($Email)
     return $result[0];
 }
 
+// Get all the users on the DB
 function getUsers()
 {
     require_once 'model/dbConnector.php';
@@ -40,6 +44,7 @@ function getUsers()
     return $result;
 }
 
+// Remove an user from the DB
 function removeUser($idUser)
 {
     require_once 'model/dbConnector.php';

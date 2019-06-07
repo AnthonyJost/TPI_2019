@@ -1,3 +1,4 @@
+<!-- Display the event in order to modify them -->
 <!-- categories section -->
 <section class="categories-section spad">
     <div class="container">

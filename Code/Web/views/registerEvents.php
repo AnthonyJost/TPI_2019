@@ -1,3 +1,4 @@
+<!-- Register into a working group page -->
 <!-- categories section -->
 <section class="categories-section spad">
     <div class="container">

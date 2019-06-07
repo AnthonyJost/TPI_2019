@@ -1,4 +1,2 @@
-<?php
-
-?>
+<!-- Register validation page -->
 Coucou

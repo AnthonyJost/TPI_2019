@@ -1,3 +1,4 @@
+<!-- Modifying events and stats consultation page -->
 <!-- categories section -->
 <section class="categories-section spad">
     <div class="container">

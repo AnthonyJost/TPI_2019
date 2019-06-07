@@ -1,3 +1,4 @@
+<!-- Form page -->
 <section class="signup-section spad">
     <div class="container-fluid">
         <div class="row">

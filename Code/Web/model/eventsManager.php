@@ -1,5 +1,6 @@
 <?php
 
+// Get all the event's into the DB
 function getEvents()
 {
     require_once 'model/dbConnector.php';
@@ -10,6 +11,7 @@ function getEvents()
     return $result;
 }
 
+// Get a particular event based on its id
 function getEvent($idEvent)
 {
     require_once 'model/dbConnector.php';
@@ -20,16 +22,7 @@ function getEvent($idEvent)
     return $result[0];
 }
 
-function getModifyEvent()
-{
-    require_once 'model/dbConnector.php';
-    $connexion = openDBConnexion();
-    $request = $connexion->prepare('SELECT * FROM bdd_satisfevent.events WHERE idEvents = ?');
-    $request->execute(array($_GET["idEvents"]));
-    $result = $request->fetchAll();
-    return $result[0];
-}
-
+// Modify the event previously selected
 function modifyEvent($values)
 {
     require_once 'model/dbConnector.php';
@@ -38,16 +31,7 @@ function modifyEvent($values)
     $request->execute(array($values['Title'], $values['Date'], $values['idEvents']));
 }
 
-function getEventTitle()
-{
-    require_once 'model/dbConnector.php';
-    $connexion = openDBConnexion();
-    $request = $connexion->prepare('SELECT Title FROM bdd_satisfevent.events WHERE idEvents = ?');
-    $request->execute(array($_GET['idEvents']));
-    $result = $request->fetchAll();
-    return $result[0];
-}
-
+// Get an event based on its working groups
 function getEventByWorkingGroup($idWG)
 {
     require_once 'model/dbConnector.php';
@@ -58,18 +42,3 @@ function getEventByWorkingGroup($idWG)
     return $result[0];
 }
 
-function getUserWorkinggroups($user, $event)
-{
-    require_once 'model/dbConnector.php';
-    $connexion = openDBConnexion();
-    $request = $connexion->prepare('
-        SELECT * FROM users_has_workinggroups
-        INNER JOIN workinggroups_has_events on workinggroups_has_events.workinggroups_idworkinggroups = users_has_workinggroups.workinggroups_idworkinggroups
-		INNER JOIN workinggroups on workinggroups.idWorkingGroups = users_has_workinggroups.WorkingGroups_idWorkingGroups 
-        WHERE users_has_workinggroups.users_idusers = ?
-        AND workinggroups_has_events.Events_idEvents = ?'
-    );
-    $request->execute(array($user, $event));
-    $result = $request->fetchAll();
-    return $result;
-}

@@ -16,7 +16,8 @@ function eventModifier(){
     require_once "model/eventsManager.php";
     require_once("model/workinggroupsManager.php");
 
-    $modifyEvent = getModifyEvent();
+    $modifyEvent = getEvent($_GET['idEvents']);
+    // The event's working groups are added to the page in order to see the stats
     $workingGroups = getWorkinggroups($_GET['idEvents']);
 }
 
@@ -25,15 +26,6 @@ function updateEvent($values){
     global $events;
     require_once("model/eventsManager.php");
     $events = modifyEvent($values);
-}
-
-// Get the title of the selected event and all the working groups contains in it
-function registerEvents(){
-    require_once("model/eventsManager.php");
-    require_once("model/workinggroupsManager.php");
-
-    getEventTitle($_GET['idEvents']);
-    getWorkinggroups($_GET['idEvents']);
 }
 
 // Function which determine the correct action to do based on the event date and the user inscription
@@ -56,13 +48,15 @@ function choiceEvent(){
             // Redirection
             return;
         }
+        // Verify if the user has already fill the form
         $wGId = getWGId($_SESSION['logged']['idUsers'], $_GET['idEvents']);
         $formSent = isformSent($_SESSION['logged']['idUsers'], $_GET['idEvents'], $wGId);
-        if(count($formSent) == 0){
+        if(count($formSent) == 0){ // Form not filled, display the form
             $GLOBALS['view'] = "satisform";
             // Redirection
             return;
         }
+        // Form already filled
         echo "Formulaire déjà rempli";
         return;
     }
@@ -133,6 +127,7 @@ function displayRegister(){
 function registerWorkinggroup(){
     global $event;
     require_once("model/eventsManager.php");
+    require_once 'model/workinggroupsManager.php';
 
     // Get all the working groups related to the event the user click on
     $event = getEventByWorkingGroup($_GET['idWorkinggroups']);
@@ -146,6 +141,7 @@ function registerWorkinggroup(){
         addUserToWorkinggroup($_GET['idWorkinggroups']);
         return;
     }
+    // Message displayed if the user is already register in a working group
     echo "Vous ne pouvez pas vous inscrire à deux ateliers concernant le même événement";
 }
 
@@ -159,7 +155,9 @@ function unregisterWorkinggroups(){
 function sendForm(){
     require_once 'model/workinggroupsManager.php';
     dataForm($_POST['Material'], $_POST['Activity'], $_POST['Place'], $_POST['Hours'], $_POST['Satisfaction'], $_POST['Suggestion']);
+    // Get the id of the stat the user just entered
     $idStat = getStatId();
+    // Enter into the database all the references between the working groups, the user and the statistics
     userHasStat($idStat);
     wGHasStats($_POST['idWorkinggroups'], $idStat);
 }
@@ -220,10 +218,13 @@ function login(){
 /*
  * Miscellaneous section start
  */
+
+// Function in case of error
 function error(){
 
 }
 
+// Get all the infos in order to create a graph
 function showStats($idWG){
     require_once 'model/statsManager.php';
     getStats($idWG);
@@ -237,6 +238,8 @@ function verifyPassword($verifyPassword){
        exit();
     }
 
+    // This regular expression is not working
+    // It was created to check the complexity of the users's password
     /*if(!preg_match('/(.*[-\da-zA-z+!?*%&\/()[\]\\\#=_<>]).{8,}/', $verifyPassword)){
         header("Location:?action=register&error=Le mot de passe ne correspond pas aux critères");
         exit();

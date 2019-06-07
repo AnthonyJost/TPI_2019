@@ -1,4 +1,5 @@
 <?php
+// Get the stats
 function getStats($idWG)
 {
     require_once('model/dbConnector.php');
@@ -11,7 +12,7 @@ function getStats($idWG)
     $request->execute(array($idWG));
 
     $statsName = ["Material", "Activity", "Place", "Hours", "Satisfaction"];
-
+    // Place the stats into an array
     global $stats;
     $stats = [];
     while ($row = $request->fetch(PDO::FETCH_ASSOC)) {

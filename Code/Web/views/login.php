@@ -1,3 +1,4 @@
+<!-- Login page -->
 <!-- signup section -->
 <section class="signup-section spad">
     <div class="signup-bg set-bg" data-setbg="img/signup-bg.jpg"></div>
